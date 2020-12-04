@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "675164750811",
+    "firebase_url": "https://private-album-60f7d.firebaseio.com",
+    "project_id": "private-album-60f7d",
+    "storage_bucket": "private-album-60f7d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675164750811:android:38c81316f6e2a4dea51dfe",
+        "android_client_info": {
+          "package_name": "com.jojo.private_album"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "675164750811-3ubcur81t2m51a5g3jqq2sjegr6lvmui.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuAYOpFDcsZUECAtBFm8Q_lAifD8UO8GM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "675164750811-3ubcur81t2m51a5g3jqq2sjegr6lvmui.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
