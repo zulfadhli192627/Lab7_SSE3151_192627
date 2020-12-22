@@ -3,6 +3,7 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
 import 'package:private_album/service/database.dart';
+import 'package:private_album/service/geolocator.dart';
 import 'package:private_album/shared/constants.dart';
 
 class AddImage extends StatefulWidget {
@@ -14,6 +15,7 @@ class _AddImageState extends State<AddImage> {
   File imageFile;
   final picker = ImagePicker();
   String _description;
+  String _location;
 
   Future _chooseSource(ImageSource source) async {
     final selected = await picker.getImage(source: source);
@@ -92,7 +94,7 @@ class _AddImageState extends State<AddImage> {
                     child: Text('Select Image'),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
                   ),
                   RaisedButton(
                     onPressed: () {
@@ -108,13 +110,6 @@ class _AddImageState extends State<AddImage> {
                         padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
                         child: Column(
                           children: <Widget>[
-                            Text(
-                              'Fill in Image Detail',
-                              style: TextStyle(fontSize: 18.0),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
                             TextFormField(
                               decoration: textInputDecoration.copyWith(
                                   labelText: 'Caption'),
@@ -126,7 +121,24 @@ class _AddImageState extends State<AddImage> {
                             SizedBox(
                               height: 20,
                             ),
+                            FutureBuilder(
+                              future: determinePosition(),
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  _location = snapshot.data.toString();
+                                  return Text(
+                                    snapshot.data.toString(),
+                                  );
+                                } else {
+                                  return Text('Fail to get Location');
+                                }
+                              },
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
                             Uploader(
+                              location: _location,
                               file: imageFile,
                               desc: _description,
                             ),

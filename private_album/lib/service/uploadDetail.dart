@@ -3,8 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 class UploadDetail extends StatelessWidget {
-  UploadDetail({this.desc, this.fileName});
-  String fileName, desc;
+  String fileName, desc, location;
+  UploadDetail({this.desc, this.fileName, this.location});
 
   final CollectionReference photoStore =
       Firestore.instance.collection('images');
@@ -21,6 +21,7 @@ class UploadDetail extends StatelessWidget {
       'name': fileName,
       'desc': desc,
       'url': url,
+      'location': location,
       'createdAt': DateTime.now(),
     });
   }

@@ -8,7 +8,8 @@ import 'package:private_album/service/uploadDetail.dart';
 class Uploader extends StatefulWidget {
   final File file;
   String desc;
-  Uploader({Key key, this.file, this.desc}) : super(key: key);
+  String location;
+  Uploader({Key key, this.file, this.desc, this.location}) : super(key: key);
 
   createState() => _UploaderState();
 }
@@ -46,6 +47,7 @@ class _UploaderState extends State<Uploader> {
                   UploadDetail(
                     fileName: fileName,
                     desc: widget.desc,
+                    location: widget.location,
                   ),
                 if (_uploadTask.isPaused)
                   FlatButton(

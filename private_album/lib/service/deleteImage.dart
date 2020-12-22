@@ -25,12 +25,8 @@ class DeleteImage extends StatelessWidget {
     }
 
     return FlatButton(
-      child: Text(
-        'Delete Image',
-        style: TextStyle(color: Colors.white),
-      ),
+      child: Icon(Icons.delete),
       padding: EdgeInsets.symmetric(vertical: 15),
-      color: Colors.lightBlueAccent,
       onPressed: () {
         deleteImage();
         Navigator.pop(context);

@@ -18,18 +18,22 @@ class AuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text(
           "Authentication",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.black54,
         elevation: 0,
         centerTitle: true,
       ),
       body: Center(
         child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('images/auth_background.jpg'),
+                fit: BoxFit.cover),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -38,13 +42,24 @@ class AuthScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(50.0),
                 child: PinPut(
-                  fieldsCount: 6,
+                  onChanged: (String pin) {
+                    if (pin == '1973') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DashboardScreen(),
+                        ),
+                      );
+                    }
+                  },
+                  fieldsCount: 4,
                   focusNode: _pinPutFocusNode,
                   controller: _pinPutController,
                   submittedFieldDecoration: _pinPutDecoration.copyWith(
+                    color: Colors.white38,
                     borderRadius: BorderRadius.circular(20.0),
                   ),
-                  selectedFieldDecoration: _pinPutDecoration,
+                  selectedFieldDecoration: _pinPutDecoration.copyWith(),
                   followingFieldDecoration: _pinPutDecoration.copyWith(
                     borderRadius: BorderRadius.circular(5.0),
                     border: Border.all(
@@ -59,7 +74,7 @@ class AuthScreen extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
                 child: Text(
                   'Or',
-                  style: TextStyle(fontSize: 15.0, color: Colors.black),
+                  style: TextStyle(fontSize: 15.0, color: Colors.white70),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -69,7 +84,7 @@ class AuthScreen extends StatelessWidget {
                 child: Text(
                   'Sign in with Fingerprint',
                   style: TextStyle(
-                    color: Colors.grey[600],
+                    color: Colors.white,
                   ),
                 ),
                 onPressed: () async {
@@ -81,9 +96,11 @@ class AuthScreen extends StatelessWidget {
 
                     if (authenticated) {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => DashboardScreen()));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DashboardScreen(),
+                        ),
+                      );
                     }
                   }
                 },

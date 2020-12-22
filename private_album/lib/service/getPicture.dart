@@ -16,6 +16,7 @@ class GetPicture extends ChangeNotifier {
           fileName: doc.data['name'] ?? 'Not found',
           desc: doc.data['desc'] ?? 'Not found',
           url: doc.data['url'] ?? 'Not found',
+          location: doc.data['location'] ?? 'Not found',
           createdAt: doc.data['createdAt'] ?? 'Not found');
     }).toList();
   }

@@ -10,13 +10,27 @@ class DescView extends StatelessWidget {
   Widget build(BuildContext context) {
     final pic = Provider.of<List<ImageDetails>>(context) ?? [];
 
-    return Text(
-      pic[position].desc,
-      style: TextStyle(
-        color: Colors.lightBlueAccent,
-        fontSize: 22,
-        fontWeight: FontWeight.w600,
-      ),
+    return Column(
+      children: <Widget>[
+        Text(
+          pic[position].location,
+          style: TextStyle(
+            color: Colors.lightBlueAccent,
+            fontSize: 25,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Text(
+          pic[position].desc,
+          style: TextStyle(
+            color: Colors.lightBlueAccent,
+            fontSize: 18,
+          ),
+        ),
+      ],
     );
   }
 }

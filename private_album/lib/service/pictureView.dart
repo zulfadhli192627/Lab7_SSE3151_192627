@@ -11,7 +11,7 @@ class PictureView extends StatelessWidget {
     final pic = Provider.of<List<ImageDetails>>(context) ?? [];
 
     return Container(
-      padding: EdgeInsets.all(50.0),
+      padding: EdgeInsets.all(50),
       child: Image.network(
         pic[position].url,
         fit: BoxFit.cover,
