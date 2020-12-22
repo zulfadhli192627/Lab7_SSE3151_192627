@@ -17,14 +17,17 @@ class UploadDetail extends StatelessWidget {
         .getDownloadURL();
     print(url);
     // upload detail
-    photoStore
-        .document(fileName)
-        .setData({'name': fileName, 'desc': desc, 'url': url});
+    photoStore.document(fileName).setData({
+      'name': fileName,
+      'desc': desc,
+      'url': url,
+      'createdAt': DateTime.now(),
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     _uploadDetail();
-    return Text('Success anjir');
+    return Text('Success');
   }
 }
