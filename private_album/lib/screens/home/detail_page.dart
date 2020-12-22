@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:private_album/model/image_detail.dart';
+import 'package:private_album/service/deleteImage.dart';
 import 'package:private_album/service/descView.dart';
 import 'package:private_album/service/pictureView.dart';
 import 'package:provider/provider.dart';
@@ -22,7 +23,7 @@ class DetailsPage extends StatelessWidget {
                   tag: index,
                   child: Expanded(
                     child: PictureView(
-                      position: position[index],
+                      position: index,
                     ),
                   ),
                 ),
@@ -61,8 +62,11 @@ class DetailsPage extends StatelessWidget {
                               ),
                             ),
                           ),
+                          DeleteImage(
+                            position: index,
+                          ),
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ),
